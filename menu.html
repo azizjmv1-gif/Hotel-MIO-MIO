@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mio Mio Pizzeria - Menü</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: #d4af37;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #8b4513;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .menu-item {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .menu-item.special {
+            border: 3px solid #d4af37;
+            background: #fff8e1;
+        }
+        
+        .menu-item h3 {
+            color: #8b4513;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .menu-item p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #d4af37;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: #ff5722;
+            transform: translateY(-2px);
+        }
+        
+        .drinks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .drink-category h3 {
+            color: #8b4513;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .drink-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .drink-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mio Mio Pizzeria</h1>
+        <p>Authentische italienische Küche</p>
+    </header>
+    
+    <div class="container">
+        <div class="section">
+            <h2>Unsere Pizzen</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h3>Marinara</h3>
+                    <p>Tomaten, Oregano, Knoblauch</p>
+                    <div class="price">€5,00</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Margherita</h3>
+                    <p>Tomaten, Mozzarella</p>
+                    <div class="price">€7,00</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Prosciutto</h3>
+                    <p>Tomaten, Mozzarella, Schinken</p>
+                    <div class="price">€9,00</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Hawaii</h3>
+                    <p>Tomaten, Mozzarella, Schinken, Ananas</p>
+                    <div class="price">€9,50</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>4 Formaggi</h3>
+                    <p>Tomaten, Mozzarella, Gorgonzola, Emmentaler, Räucherkäse</p>
+                    <div class="price">€10,00</div>
+                </div>
+                
+                <div class="menu-item special">
+                    <h3>Mio Mio Special</h3>
+                    <p>Tomaten, Mozzarella, Schinken, Artischocken, Sardellen, Oregano, Oliven, Paprika, Pilze</p>
+                    <div class="price">€13,00</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Unsere Getränke</h2>
+            <div class="drinks-grid">
+                <div class="menu-item">
+                    <h3>Weine</h3>
+                    <div class="drink-item">
+                        <span>Chianti Classico</span>
+                        <span class="price">€18,00</span>
+                    </div>
+                    <div class="drink-item">
+                        <span>Pinot Grigio</span>
+                        <span class="price">€16,00</span>
+                    </div>
+                    <div class="drink-item">
+                        <span>Prosecco</span>
+                        <span class="price">€14,00</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Bier</h3>
+                    <div class="drink-item">
+                        <span>Peroni</span>
+                        <span class="price">€3,50</span>
+                    </div>
+                    <div class="drink-item">
+                        <span>Moretti</span>
+                        <span class="price">€3,50</span>
+                    </div>
+                    <div class="drink-item">
+                        <span>Heineken</span>
+                        <span class="price">€3,00</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Softdrinks</h3>
+                    <div class="drink-item">
+                        <span>Coca Cola</span>
+                        <span class="price">€2,50</span>
+                    </div>
+                    <div class="drink-item">
+                        <span>Fanta</span>
+                        <span class="price">€2,50</span>
+                    </div>
+                    <div class="drink-item">
+                        <span>Wasser</span>
+                        <span class="price">€2,00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="index.html" class="back-button">Zurück zur Startseite</a>
+        </div>
+    </div>
+</body>
+</html>

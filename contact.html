@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mio Mio Pizzeria - Kontakt</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #d4af37 0%, #8b4513 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .contact-info {
+            margin-bottom: 15px;
+        }
+        
+        .contact-info strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #ff6b35;
+        }
+        
+        .hours {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
+        }
+        
+        .hours h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .day {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .day:last-child {
+            border-bottom: none;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: #ff5722;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kontakt & Öffnungszeiten</h1>
+        </header>
+        
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>📍 Adresse</h3>
+                <div class="contact-info">
+                    <strong>Mio Mio Pizzeria</strong>
+                    <span>Musterstraße 123<br>12345 Musterstadt</span>
+                </div>
+            </div>
+            
+            <div class="contact-card">
+                <h3>📞 Telefon</h3>
+                <div class="contact-info">
+                    <strong>Reservierungen</strong>
+                    <span>+49 (0) 123 456 789</span>
+                </div>
+                <div class="contact-info">
+                    <strong>Bestellungen</strong>
+                    <span>+49 (0) 123 456 790</span>
+                </div>
+            </div>
+            
+            <div class="contact-card">
+                <h3>📧 E-Mail</h3>
+                <div class="contact-info">
+                    <strong>Allgemein</strong>
+                    <span>info@miomio-pizzeria.de</span>
+                </div>
+                <div class="contact-info">
+                    <strong>Reservierungen</strong>
+                    <span>reservierung@miomio-pizzeria.de</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hours">
+            <h3>🕒 Öffnungszeiten</h3>
+            <div class="hours-grid">
+                <div class="day">
+                    <span>Montag - Donnerstag</span>
+                    <span>11:00 - 22:00</span>
+                </div>
+                <div class="day">
+                    <span>Freitag - Samstag</span>
+                    <span>11:00 - 23:00</span>
+                </div>
+                <div class="day">
+                    <span>Sonntag</span>
+                    <span>12:00 - 21:00</span>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="index.html" class="back-button">Zurück zur Startseite</a>
+            <a href="menu.html" class="back-button" style="margin-left: 20px;">Zum Menü</a>
+        </div>
+    </div>
+</body>
+</html>
