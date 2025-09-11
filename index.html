@@ -15,50 +15,54 @@
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #d4af37, #ff6b35);
             color: white;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            overflow-x: hidden;
         }
         
         .container {
             text-align: center;
             animation: fadeIn 2s ease-in;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
         }
         
         .pizza {
-            font-size: 8rem;
+            font-size: clamp(4rem, 12vw, 8rem);
             animation: rotate 3s linear infinite;
-            margin-bottom: 30px;
+            margin-bottom: clamp(15px, 4vw, 30px);
         }
         
         h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin-bottom: clamp(10px, 3vw, 20px);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .subtitle {
-            font-size: 2rem;
-            margin-bottom: 40px;
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            margin-bottom: clamp(20px, 5vw, 40px);
             opacity: 0.9;
         }
         
         .message {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: clamp(20px, 5vw, 40px);
             opacity: 0.8;
+            line-height: 1.4;
         }
         
         .start-button {
             display: inline-block;
             background: white;
             color: #d4af37;
-            padding: 20px 40px;
+            padding: clamp(15px, 4vw, 20px) clamp(30px, 8vw, 40px);
             text-decoration: none;
             border-radius: 50px;
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
             font-weight: bold;
             box-shadow: 0 8px 25px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
@@ -66,6 +70,7 @@
             letter-spacing: 2px;
             cursor: pointer;
             border: none;
+            margin-bottom: 20px;
         }
         
         .start-button:hover {
@@ -76,9 +81,10 @@
         
         .button-group {
             display: none;
-            gap: 30px;
+            gap: clamp(15px, 4vw, 30px);
             justify-content: center;
-            margin-top: 40px;
+            margin-top: clamp(20px, 5vw, 40px);
+            flex-wrap: wrap;
         }
         
         .button-group.show {
@@ -90,15 +96,17 @@
             display: inline-block;
             background: white;
             color: #333;
-            padding: 30px 40px;
+            padding: clamp(20px, 5vw, 30px) clamp(25px, 6vw, 40px);
             text-decoration: none;
             border-radius: 20px;
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 3.5vw, 1.3rem);
             font-weight: bold;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
             text-align: center;
-            min-width: 200px;
+            min-width: clamp(150px, 40vw, 200px);
+            flex: 1;
+            max-width: 300px;
         }
         
         .menu-button:hover {
@@ -117,9 +125,55 @@
         }
         
         .menu-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
+            font-size: clamp(2.5rem, 8vw, 3rem);
+            margin-bottom: clamp(10px, 3vw, 15px);
             display: block;
+        }
+        
+        /* Mobile Optimierungen */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .menu-button {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+        
+        /* iPad Optimierungen */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .button-group {
+                gap: 25px;
+            }
+            
+            .menu-button {
+                min-width: 180px;
+                max-width: 250px;
+            }
+        }
+        
+        /* Touch-Optimierungen */
+        @media (hover: none) and (pointer: coarse) {
+            .start-button:hover,
+            .menu-button:hover {
+                transform: none;
+            }
+            
+            .start-button:active,
+            .menu-button:active {
+                transform: scale(0.95);
+            }
         }
         
         @keyframes rotate {
