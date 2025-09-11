@@ -148,16 +148,6 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255,255,255,0.2);
-            padding: 10px 15px;
-            border-radius: 20px;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
@@ -197,13 +187,10 @@
         const welcomeContainer = document.getElementById(welcomeContainer);
         const mainContainer = document.getElementById(mainContainer);
         
-        const timer = setInterval(() => {
-            
-                clearInterval(timer);
-                welcomeContainer.classList.add(hide);
-                mainContainer.classList.add(show);
-            }
-        }, 1000);
+        setTimeout(() => {
+            welcomeContainer.classList.add(hide);
+            mainContainer.classList.add(show);
+        }, 4000);
     </script>
 </body>
 </html>
