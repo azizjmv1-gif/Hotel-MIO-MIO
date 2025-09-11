@@ -48,51 +48,75 @@
             color: #8b4513;
         }
         
-        .menu-grid {
+        .pizza-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
         
-        .menu-item {
+        .pizza-button {
             background: #f8f8f8;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .menu-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .menu-item.special {
             border: 3px solid #d4af37;
-            background: #fff8e1;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
-        .menu-item h3 {
+        .pizza-button:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border-color: #ff6b35;
+        }
+        
+        .pizza-button.special {
+            background: linear-gradient(135deg, #fff8e1, #f5f5f5);
+            border-color: #ff6b35;
+        }
+        
+        .pizza-image {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            background: #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .pizza-name {
+            font-size: 1.4rem;
+            font-weight: bold;
             color: #8b4513;
             margin-bottom: 10px;
+        }
+        
+        .pizza-price {
             font-size: 1.3rem;
-        }
-        
-        .menu-item .italian {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-        }
-        
-        .menu-item .german {
-            color: #555;
-            margin-bottom: 15px;
-        }
-        
-        .price {
-            font-size: 1.2rem;
             font-weight: bold;
             color: #d4af37;
+            margin-bottom: 8px;
+        }
+        
+        .pizza-ingredients {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+            font-style: italic;
+        }
+        
+        .pizza-german {
+            font-size: 0.85rem;
+            color: #555;
         }
         
         .back-button {
@@ -122,147 +146,168 @@
     <div class="container">
         <div class="section">
             <h2>P I Z Z A</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <h3>Margherita</h3>
-                    <div class="italian">pomodoro, mozzarella</div>
-                    <div class="german">tomaten, mozzarella</div>
-                    <div class="price">€ 7,00</div>
-                </div>
+            <div class="pizza-grid">
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🍕</div>
+                    <div class="pizza-name">Margherita</div>
+                    <div class="pizza-price">€ 7,00</div>
+                    <div class="pizza-ingredients">pomodoro, mozzarella</div>
+                    <div class="pizza-german">tomaten, mozzarella</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>4 Formaggi</h3>
-                    <div class="italian">pom,mozz,gorgo,emmenthal,formaggioa ffumicato</div>
-                    <div class="german">tom,mozz,gorgonzola,emmenthal, räucherkäse</div>
-                    <div class="price">€ 10,00</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🧀</div>
+                    <div class="pizza-name">4 Formaggi</div>
+                    <div class="pizza-price">€ 10,00</div>
+                    <div class="pizza-ingredients">pom,mozz,gorgo,emmenthal,formaggioa ffumicato</div>
+                    <div class="pizza-german">tom,mozz,gorgonzola,emmenthal, räucherkäse</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>Capricciosa</h3>
-                    <div class="italian">mozzarella, pomodoro, prosciutto, funghi,carciofi</div>
-                    <div class="german">mozzarella, tomaten,schinken,pilzen,artischoken</div>
-                    <div class="price">€ 10,50</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🍄</div>
+                    <div class="pizza-name">Capricciosa</div>
+                    <div class="pizza-price">€ 10,50</div>
+                    <div class="pizza-ingredients">mozzarella, pomodoro, prosciutto, funghi,carciofi</div>
+                    <div class="pizza-german">mozzarella, tomaten,schinken,pilzen,artischoken</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>4 Stagioni</h3>
-                    <div class="italian">pomodoro,mozzarella, prosciutto,funghi,carciofi,olive</div>
-                    <div class="german">tomaten,mozzarella,schinken,pilzen,artischoken,olive</div>
-                    <div class="price">€ 10,50</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🌿</div>
+                    <div class="pizza-name">4 Stagioni</div>
+                    <div class="pizza-price">€ 10,50</div>
+                    <div class="pizza-ingredients">pomodoro,mozzarella, prosciutto,funghi,carciofi,olive</div>
+                    <div class="pizza-german">tomaten,mozzarella,schinken,pilzen,artischoken,olive</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>Prosciutto</h3>
-                    <div class="italian">pomodoro, mozzarella, prosciutto</div>
-                    <div class="german">tomaten, mozzarella, schinken</div>
-                    <div class="price">€ 9,00</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🥓</div>
+                    <div class="pizza-name">Prosciutto</div>
+                    <div class="pizza-price">€ 9,00</div>
+                    <div class="pizza-ingredients">pomodoro, mozzarella, prosciutto</div>
+                    <div class="pizza-german">tomaten, mozzarella, schinken</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>Prosciutto e Funghi</h3>
-                    <div class="italian">pomodoro, mozzarella,prosciutto,funghi</div>
-                    <div class="german">tomaten, mozzarella,schinken, pilzen</div>
-                    <div class="price">€ 10,00</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🍄</div>
+                    <div class="pizza-name">Prosciutto e Funghi</div>
+                    <div class="pizza-price">€ 10,00</div>
+                    <div class="pizza-ingredients">pomodoro, mozzarella,prosciutto,funghi</div>
+                    <div class="pizza-german">tomaten, mozzarella,schinken, pilzen</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>Tirolese</h3>
-                    <div class="italian">pomodoro, mozzarella, spinaci,speck e noci</div>
-                    <div class="german">tomaten,mozzarella, parmesan,spinat,speck</div>
-                    <div class="price">€ 11,50</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🥬</div>
+                    <div class="pizza-name">Tirolese</div>
+                    <div class="pizza-price">€ 11,50</div>
+                    <div class="pizza-ingredients">pomodoro, mozzarella, spinaci,speck e noci</div>
+                    <div class="pizza-german">tomaten,mozzarella, parmesan,spinat,speck</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>Tonno e Cipolle</h3>
-                    <div class="italian">pomodoro, mozzarella, tonno,cipolle</div>
-                    <div class="german">tomaten,mozzarella, thunfisch,zwiebeln</div>
-                    <div class="price">€ 9,00</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🐟</div>
+                    <div class="pizza-name">Tonno e Cipolle</div>
+                    <div class="pizza-price">€ 9,00</div>
+                    <div class="pizza-ingredients">pomodoro, mozzarella, tonno,cipolle</div>
+                    <div class="pizza-german">tomaten,mozzarella, thunfisch,zwiebeln</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>Vegetariana</h3>
-                    <div class="italian">pomodoro,mozzarella,verdure miste</div>
-                    <div class="german">tomaten,mozzarella,gemischte gemüse</div>
-                    <div class="price">€ 10,00</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🥕</div>
+                    <div class="pizza-name">Vegetariana</div>
+                    <div class="pizza-price">€ 10,00</div>
+                    <div class="pizza-ingredients">pomodoro,mozzarella,verdure miste</div>
+                    <div class="pizza-german">tomaten,mozzarella,gemischte gemüse</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>Hawaii</h3>
-                    <div class="italian">pomodoro, mozzarella, prosciutto, ananas</div>
-                    <div class="german">tomaten,mozzarella,schinken,ananas</div>
-                    <div class="price">€ 9,50</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🍍</div>
+                    <div class="pizza-name">Hawaii</div>
+                    <div class="pizza-price">€ 9,50</div>
+                    <div class="pizza-ingredients">pomodoro, mozzarella, prosciutto, ananas</div>
+                    <div class="pizza-german">tomaten,mozzarella,schinken,ananas</div>
+                </a>
                 
-                <div class="menu-item special">
-                    <h3>Bufalina</h3>
-                    <div class="italian">pomodoro, mozzarella di bufala, pomodori freschi</div>
-                    <div class="german">tomaten,büffelmilchmozzarella, frische tomatensalat</div>
-                    <div class="price">€ 12,00</div>
-                </div>
+                <a href="#" class="pizza-button special">
+                    <div class="pizza-image">🫒</div>
+                    <div class="pizza-name">Bufalina</div>
+                    <div class="pizza-price">€ 12,00</div>
+                    <div class="pizza-ingredients">pomodoro, mozzarella di bufala, pomodori freschi</div>
+                    <div class="pizza-german">tomaten,büffelmilchmozzarella, frische tomatensalat</div>
+                </a>
                 
-                <div class="menu-item special">
-                    <h3>Mio Mio</h3>
-                    <div class="italian">pom,moz,pros, carciofi,acciughe, origano,olive,pep.funghi</div>
-                    <div class="german">tom,moz,schin,artischoken, sardelle,oregano,olive,pap,pilzen</div>
-                    <div class="price">€ 13,00</div>
-                </div>
+                <a href="#" class="pizza-button special">
+                    <div class="pizza-image">⭐</div>
+                    <div class="pizza-name">Mio Mio</div>
+                    <div class="pizza-price">€ 13,00</div>
+                    <div class="pizza-ingredients">pom,moz,pros, carciofi,acciughe, origano,olive,pep.funghi</div>
+                    <div class="pizza-german">tom,moz,schin,artischoken, sardelle,oregano,olive,pap,pilzen</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>Valtellina</h3>
-                    <div class="italian">Mozzarella, scaglie di grana, bresaola, rucola</div>
-                    <div class="german">Mozzarella, Parmesan, Bündnerfleisch, Rucola</div>
-                    <div class="price">€ 11,50</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🥩</div>
+                    <div class="pizza-name">Valtellina</div>
+                    <div class="pizza-price">€ 11,50</div>
+                    <div class="pizza-ingredients">Mozzarella, scaglie di grana, bresaola, rucola</div>
+                    <div class="pizza-german">Mozzarella, Parmesan, Bündnerfleisch, Rucola</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>Gustosa</h3>
-                    <div class="italian">Mozzarella, taleggio, radicchio</div>
-                    <div class="german">Mozzarella, Käse, Endivie</div>
-                    <div class="price">€ 10,50</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🧀</div>
+                    <div class="pizza-name">Gustosa</div>
+                    <div class="pizza-price">€ 10,50</div>
+                    <div class="pizza-ingredients">Mozzarella, taleggio, radicchio</div>
+                    <div class="pizza-german">Mozzarella, Käse, Endivie</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>Calzone</h3>
-                    <div class="italian">Pomodoro, mozzarella, prosciutto e funghi</div>
-                    <div class="german">Tomaten, Mozzarella, Schinken</div>
-                    <div class="price">€ 10,00</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🥟</div>
+                    <div class="pizza-name">Calzone</div>
+                    <div class="pizza-price">€ 10,00</div>
+                    <div class="pizza-ingredients">Pomodoro, mozzarella, prosciutto e funghi</div>
+                    <div class="pizza-german">Tomaten, Mozzarella, Schinken</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>Strong</h3>
-                    <div class="italian">Pomodoro, mozzarella, gorgonzola, salame piccante</div>
-                    <div class="german">Tomaten, Mozzarella, Gorgonzola, Scharfe Salami</div>
-                    <div class="price">€ 11,50</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🌶️</div>
+                    <div class="pizza-name">Strong</div>
+                    <div class="pizza-price">€ 11,50</div>
+                    <div class="pizza-ingredients">Pomodoro, mozzarella, gorgonzola, salame piccante</div>
+                    <div class="pizza-german">Tomaten, Mozzarella, Gorgonzola, Scharfe Salami</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>Boscaiola</h3>
-                    <div class="italian">Pomodoro, mozzarella, porcini, prosciutto crudo</div>
-                    <div class="german">Tomaten, Mozzarella, Steinpilze, Parmaschinken</div>
-                    <div class="price">€ 12,00</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🍄</div>
+                    <div class="pizza-name">Boscaiola</div>
+                    <div class="pizza-price">€ 12,00</div>
+                    <div class="pizza-ingredients">Pomodoro, mozzarella, porcini, prosciutto crudo</div>
+                    <div class="pizza-german">Tomaten, Mozzarella, Steinpilze, Parmaschinken</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>Marinara</h3>
-                    <div class="italian">Pomodoro, origano, aglio</div>
-                    <div class="german">Tomaten, Oregano, Knoblauch</div>
-                    <div class="price">€ 5,00</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🧄</div>
+                    <div class="pizza-name">Marinara</div>
+                    <div class="pizza-price">€ 5,00</div>
+                    <div class="pizza-ingredients">Pomodoro, origano, aglio</div>
+                    <div class="pizza-german">Tomaten, Oregano, Knoblauch</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>Diavola</h3>
-                    <div class="price">€ 10,00</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🌶️</div>
+                    <div class="pizza-name">Diavola</div>
+                    <div class="pizza-price">€ 10,00</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>Salsiccia Piccante</h3>
-                    <div class="price">€ 10,00</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🌶️</div>
+                    <div class="pizza-name">Salsiccia Piccante</div>
+                    <div class="pizza-price">€ 10,00</div>
+                </a>
                 
-                <div class="menu-item">
-                    <h3>Napoletana</h3>
-                    <div class="price">€ 10,50</div>
-                </div>
+                <a href="#" class="pizza-button">
+                    <div class="pizza-image">🍕</div>
+                    <div class="pizza-name">Napoletana</div>
+                    <div class="pizza-price">€ 10,50</div>
+                </a>
             </div>
         </div>
         
