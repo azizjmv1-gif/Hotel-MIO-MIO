@@ -22,7 +22,7 @@
             overflow: hidden;
         }
         
-        .welcome-container {
+        .container {
             text-align: center;
             animation: fadeIn 2s ease-in;
         }
@@ -51,82 +51,25 @@
             opacity: 0.8;
         }
         
-        .loading {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(255,255,255,0.3);
-            border-top: 4px solid white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
-        
-        .main-container {
-            display: none;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .main-container.show {
-            display: block;
-            animation: slideIn 1s ease-out;
-        }
-        
-        .welcome-container.hide {
-            display: none;
-        }
-        
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .card-button {
+        .start-button {
+            display: inline-block;
             background: white;
-            color: #333;
-            padding: 40px;
-            border-radius: 20px;
+            color: #d4af37;
+            padding: 20px 40px;
             text-decoration: none;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card-button:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-        
-        .card-button.restaurant {
-            background: linear-gradient(135deg, #ff6b35, #ff8c42);
-            color: white;
-        }
-        
-        .card-button.drinks {
-            background: linear-gradient(135deg, #d4af37, #f4e4bc);
-            color: #8b4513;
-        }
-        
-        .card-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-        
-        .card-title {
-            font-size: 2rem;
+            border-radius: 50px;
+            font-size: 1.5rem;
             font-weight: bold;
-            margin-bottom: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
-        .card-description {
-            font-size: 1.1rem;
-            opacity: 0.9;
+        .start-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            background: #f8f8f8;
         }
         
         @keyframes rotate {
@@ -138,20 +81,10 @@
             from { opacity: 0; transform: scale(0.8); }
             to { opacity: 1; transform: scale(1); }
         }
-        
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body>
-    <div class="welcome-container" id="welcomeContainer">
+    <div class="container">
         <div class="pizza">🍕</div>
         <h1>Mio Mio</h1>
         <p class="subtitle">Pizzeria</p>
@@ -159,38 +92,7 @@
             <p>Willkommen in</p>
             <p>Hotel Mio Mio</p>
         </div>
-        <div class="loading"></div>
+        <a href="menu.html" class="start-button">Start</a>
     </div>
-    
-    <div class="main-container" id="mainContainer">
-        <div class="welcome-container">
-            <h1>Mio Mio Pizzeria</h1>
-            <p class="subtitle">Authentische italienische Küche</p>
-        </div>
-        
-        <div class="card-grid">
-            <a href="menu.html" class="card-button restaurant">
-                <div class="card-icon">🍕</div>
-                <div class="card-title">Restaurant</div>
-                <div class="card-description">Entdecken Sie unsere köstlichen Pizzen und italienischen Spezialitäten</div>
-            </a>
-            
-            <a href="contact.html" class="card-button drinks">
-                <div class="card-icon">🍷</div>
-                <div class="card-title">Getränke & Kontakt</div>
-                <div class="card-description">Unsere Getränkekarte und Kontaktinformationen</div>
-            </a>
-        </div>
-    </div>
-
-    <script>
-        const welcomeContainer = document.getElementById(welcomeContainer);
-        const mainContainer = document.getElementById(mainContainer);
-        
-        setTimeout(() => {
-            welcomeContainer.classList.add(hide);
-            mainContainer.classList.add(show);
-        }, 4000);
-    </script>
 </body>
 </html>
