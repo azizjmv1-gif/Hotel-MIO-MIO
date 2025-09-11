@@ -64,12 +64,62 @@
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 2px;
+            cursor: pointer;
+            border: none;
         }
         
         .start-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
             background: #f8f8f8;
+        }
+        
+        .button-group {
+            display: none;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .button-group.show {
+            display: flex;
+            animation: slideIn 1s ease-out;
+        }
+        
+        .menu-button {
+            display: inline-block;
+            background: white;
+            color: #333;
+            padding: 30px 40px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 200px;
+        }
+        
+        .menu-button:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .menu-button.restaurant {
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            color: white;
+        }
+        
+        .menu-button.drinks {
+            background: linear-gradient(135deg, #d4af37, #f4e4bc);
+            color: #8b4513;
+        }
+        
+        .menu-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
         }
         
         @keyframes rotate {
@@ -80,6 +130,11 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.8); }
             to { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -92,7 +147,29 @@
             <p>Willkommen in</p>
             <p>Hotel Mio Mio</p>
         </div>
-        <a href="menu.html" class="start-button">Start</a>
+        <button class="start-button" onclick="showButtons()">Start</button>
+        
+        <div class="button-group" id="buttonGroup">
+            <a href="menu.html" class="menu-button restaurant">
+                <div class="menu-icon">🍕</div>
+                Restaurant
+            </a>
+            
+            <a href="contact.html" class="menu-button drinks">
+                <div class="menu-icon">🍷</div>
+                Getränke
+            </a>
+        </div>
     </div>
+
+    <script>
+        function showButtons() {
+            const buttonGroup = document.getElementById(buttonGroup);
+            const startButton = document.querySelector(.start-button);
+            
+            startButton.style.display = none;
+            buttonGroup.classList.add(show);
+        }
+    </script>
 </body>
 </html>
