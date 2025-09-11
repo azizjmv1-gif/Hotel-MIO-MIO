@@ -149,7 +149,6 @@
             100% { transform: rotate(360deg); }
         }
         
-        .countdown {
             position: absolute;
             top: 20px;
             right: 20px;
@@ -163,7 +162,6 @@
 </head>
 <body>
     <div class="welcome-container" id="welcomeContainer">
-        <div class="countdown" id="countdown">4</div>
         <div class="pizza">🍕</div>
         <h1>Mio Mio</h1>
         <p class="subtitle">Pizzeria</p>
@@ -196,16 +194,11 @@
     </div>
 
     <script>
-        let countdown = 4;
-        const countdownElement = document.getElementById(countdown);
         const welcomeContainer = document.getElementById(welcomeContainer);
         const mainContainer = document.getElementById(mainContainer);
         
         const timer = setInterval(() => {
-            countdown--;
-            countdownElement.textContent = countdown;
             
-            if (countdown <= 0) {
                 clearInterval(timer);
                 welcomeContainer.classList.add(hide);
                 mainContainer.classList.add(show);
