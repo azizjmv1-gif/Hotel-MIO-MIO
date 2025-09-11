@@ -48,6 +48,53 @@
             color: #8b4513;
         }
         
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .menu-item {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .menu-item.special {
+            border: 3px solid #d4af37;
+            background: #fff8e1;
+        }
+        
+        .menu-item h3 {
+            color: #8b4513;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .menu-item .italian {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .menu-item .german {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #d4af37;
+        }
+        
         .back-button {
             display: inline-block;
             background: #ff6b35;
@@ -74,8 +121,149 @@
     
     <div class="container">
         <div class="section">
-            <h2>Unsere Pizzen</h2>
-            <p style="text-align: center; color: #666; font-size: 1.2rem;">Das Menü wird bald verfügbar sein.</p>
+            <h2>P I Z Z A</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h3>Margherita</h3>
+                    <div class="italian">pomodoro, mozzarella</div>
+                    <div class="german">tomaten, mozzarella</div>
+                    <div class="price">€ 7,00</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>4 Formaggi</h3>
+                    <div class="italian">pom,mozz,gorgo,emmenthal,formaggioa ffumicato</div>
+                    <div class="german">tom,mozz,gorgonzola,emmenthal, räucherkäse</div>
+                    <div class="price">€ 10,00</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Capricciosa</h3>
+                    <div class="italian">mozzarella, pomodoro, prosciutto, funghi,carciofi</div>
+                    <div class="german">mozzarella, tomaten,schinken,pilzen,artischoken</div>
+                    <div class="price">€ 10,50</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>4 Stagioni</h3>
+                    <div class="italian">pomodoro,mozzarella, prosciutto,funghi,carciofi,olive</div>
+                    <div class="german">tomaten,mozzarella,schinken,pilzen,artischoken,olive</div>
+                    <div class="price">€ 10,50</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Prosciutto</h3>
+                    <div class="italian">pomodoro, mozzarella, prosciutto</div>
+                    <div class="german">tomaten, mozzarella, schinken</div>
+                    <div class="price">€ 9,00</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Prosciutto e Funghi</h3>
+                    <div class="italian">pomodoro, mozzarella,prosciutto,funghi</div>
+                    <div class="german">tomaten, mozzarella,schinken, pilzen</div>
+                    <div class="price">€ 10,00</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Tirolese</h3>
+                    <div class="italian">pomodoro, mozzarella, spinaci,speck e noci</div>
+                    <div class="german">tomaten,mozzarella, parmesan,spinat,speck</div>
+                    <div class="price">€ 11,50</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Tonno e Cipolle</h3>
+                    <div class="italian">pomodoro, mozzarella, tonno,cipolle</div>
+                    <div class="german">tomaten,mozzarella, thunfisch,zwiebeln</div>
+                    <div class="price">€ 9,00</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Vegetariana</h3>
+                    <div class="italian">pomodoro,mozzarella,verdure miste</div>
+                    <div class="german">tomaten,mozzarella,gemischte gemüse</div>
+                    <div class="price">€ 10,00</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Hawaii</h3>
+                    <div class="italian">pomodoro, mozzarella, prosciutto, ananas</div>
+                    <div class="german">tomaten,mozzarella,schinken,ananas</div>
+                    <div class="price">€ 9,50</div>
+                </div>
+                
+                <div class="menu-item special">
+                    <h3>Bufalina</h3>
+                    <div class="italian">pomodoro, mozzarella di bufala, pomodori freschi</div>
+                    <div class="german">tomaten,büffelmilchmozzarella, frische tomatensalat</div>
+                    <div class="price">€ 12,00</div>
+                </div>
+                
+                <div class="menu-item special">
+                    <h3>Mio Mio</h3>
+                    <div class="italian">pom,moz,pros, carciofi,acciughe, origano,olive,pep.funghi</div>
+                    <div class="german">tom,moz,schin,artischoken, sardelle,oregano,olive,pap,pilzen</div>
+                    <div class="price">€ 13,00</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Valtellina</h3>
+                    <div class="italian">Mozzarella, scaglie di grana, bresaola, rucola</div>
+                    <div class="german">Mozzarella, Parmesan, Bündnerfleisch, Rucola</div>
+                    <div class="price">€ 11,50</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Gustosa</h3>
+                    <div class="italian">Mozzarella, taleggio, radicchio</div>
+                    <div class="german">Mozzarella, Käse, Endivie</div>
+                    <div class="price">€ 10,50</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Calzone</h3>
+                    <div class="italian">Pomodoro, mozzarella, prosciutto e funghi</div>
+                    <div class="german">Tomaten, Mozzarella, Schinken</div>
+                    <div class="price">€ 10,00</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Strong</h3>
+                    <div class="italian">Pomodoro, mozzarella, gorgonzola, salame piccante</div>
+                    <div class="german">Tomaten, Mozzarella, Gorgonzola, Scharfe Salami</div>
+                    <div class="price">€ 11,50</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Boscaiola</h3>
+                    <div class="italian">Pomodoro, mozzarella, porcini, prosciutto crudo</div>
+                    <div class="german">Tomaten, Mozzarella, Steinpilze, Parmaschinken</div>
+                    <div class="price">€ 12,00</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Marinara</h3>
+                    <div class="italian">Pomodoro, origano, aglio</div>
+                    <div class="german">Tomaten, Oregano, Knoblauch</div>
+                    <div class="price">€ 5,00</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Diavola</h3>
+                    <div class="price">€ 10,00</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Salsiccia Piccante</h3>
+                    <div class="price">€ 10,00</div>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Napoletana</h3>
+                    <div class="price">€ 10,50</div>
+                </div>
+            </div>
         </div>
         
         <div style="text-align: center; margin-top: 40px;">
