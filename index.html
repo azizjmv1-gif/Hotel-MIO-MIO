@@ -3,7 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mio Mio Pizzeria - Willkommen</title>
+    <title>Pizzeria Mio Mio - Hotel Restaurant | Tignale, Italien</title>
+    <meta name="description" content="Pizzeria Mio Mio im Hotel Mio Mio in Tignale, Italien. Authentische italienische Pizza und Küche in gemütlicher Hotel-Atmosphäre. Via Don Bosco 7.">
+    <meta name="keywords" content="Pizzeria, Hotel Mio Mio, Tignale, Italien, Pizza, Restaurant, Via Don Bosco, italienische Küche">
+    <meta name="author" content="Hotel Mio Mio">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Pizzeria Mio Mio - Hotel Restaurant Tignale">
+    <meta property="og:description" content="Authentische italienische Pizza im Hotel Mio Mio, Tignale. Frische Zutaten, traditionelle Rezepte.">
+    <meta property="og:type" content="restaurant">
+    <meta property="og:url" content="https://azizjmv1-gif.github.io/Hotel-MIO-MIO">
+    <meta property="og:image" content="https://azizjmv1-gif.github.io/Hotel-MIO-MIO/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pizzeria Mio Mio - Hotel Restaurant Tignale">
+    <meta name="twitter:description" content="Authentische italienische Pizza im Hotel Mio Mio, Tignale.">
+    <link rel="canonical" href="https://azizjmv1-gif.github.io/Hotel-MIO-MIO">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -27,6 +42,22 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             padding-top: 80px;
+            will-change: auto;
+        }
+        
+        /* Performance optimizations */
+        .navbar, .menu-button, .start-button {
+            will-change: transform;
+            transform: translateZ(0);
+        }
+        
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
         
         /* Sticky Navigation */
@@ -391,16 +422,16 @@
             <p>Willkommen in</p>
             <p>Hotel Mio Mio</p>
         </div>
-        <button class="start-button" onclick="showButtons()">Start</button>
+        <button class="start-button" onclick="showButtons()" aria-label="Website starten und Menü anzeigen">Start</button>
         
         <div class="button-group" id="buttonGroup">
-            <a href="menu.html" class="menu-button restaurant">
-                <div class="menu-icon">🍕</div>
+            <a href="menu.html" class="menu-button restaurant" aria-label="Zum Restaurant-Menü mit Pizzen und Pasta">
+                <div class="menu-icon" aria-hidden="true">🍕</div>
                 Restaurant
             </a>
             
-            <a href="contact.html" class="menu-button drinks">
-                <div class="menu-icon">🍷</div>
+            <a href="contact.html" class="menu-button drinks" aria-label="Zu Getränken und Kontaktinformationen">
+                <div class="menu-icon" aria-hidden="true">🍷</div>
                 Getränke
             </a>
         </div>
@@ -437,6 +468,46 @@
                 document.getElementById('navLinks').classList.remove('active');
             });
         });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                if (e.target.classList.contains('start-button')) {
+                    e.preventDefault();
+                    showButtons();
+                }
+            }
+            
+            // Escape key closes mobile menu
+            if (e.key === 'Escape') {
+                document.getElementById('navLinks').classList.remove('active');
+            }
+        });
+
+        // Focus management for accessibility
+        function trapFocus(element) {
+            const focusableElements = element.querySelectorAll(
+                'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
+            );
+            const firstFocusableElement = focusableElements[0];
+            const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+            element.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstFocusableElement) {
+                            lastFocusableElement.focus();
+                            e.preventDefault();
+                        }
+                    } else {
+                        if (document.activeElement === lastFocusableElement) {
+                            firstFocusableElement.focus();
+                            e.preventDefault();
+                        }
+                    }
+                }
+            });
+        }
     </script>
 </body>
 </html>
