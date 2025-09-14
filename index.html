@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mio Mio Pizzeria - Willkommen</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,8 +13,8 @@
         }
         
         body {
-            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(135deg, #d4af37, #ff6b35);
+            font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #000000;
             color: white;
             min-height: 100vh;
             display: flex;
@@ -22,6 +22,102 @@
             justify-content: center;
             overflow-x: hidden;
             font-weight: 400;
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding-top: 80px;
+        }
+        
+        /* Sticky Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ff6b35;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #ff6b35;
+            background: rgba(255, 107, 53, 0.1);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
         }
         
         .container {
@@ -65,19 +161,22 @@
         
         .start-button {
             display: inline-block;
-            background: white;
-            color: #d4af37;
-            padding: clamp(15px, 4vw, 20px) clamp(30px, 8vw, 40px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 107, 53, 0.1));
+            backdrop-filter: blur(25px);
+            color: white;
+            padding: clamp(18px, 5vw, 25px) clamp(35px, 9vw, 50px);
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 60px;
             font-size: clamp(1.2rem, 4vw, 1.5rem);
             font-weight: 600;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 
+                0 12px 40px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             text-transform: uppercase;
             letter-spacing: 2px;
             cursor: pointer;
-            border: none;
+            border: 2px solid rgba(255, 255, 255, 0.2);
             margin-bottom: 20px;
             position: relative;
             overflow: hidden;
@@ -99,9 +198,12 @@
         }
         
         .start-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            background: #f8f8f8;
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 
+                0 25px 60px rgba(0,0,0,0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 107, 53, 0.15));
+            border-color: rgba(255, 107, 53, 0.6);
         }
         
         .button-group {
@@ -119,21 +221,25 @@
         
         .menu-button {
             display: inline-block;
-            background: white;
-            color: #333;
-            padding: clamp(20px, 5vw, 30px) clamp(25px, 6vw, 40px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+            backdrop-filter: blur(25px);
+            color: white;
+            padding: clamp(25px, 6vw, 35px) clamp(30px, 7vw, 45px);
             text-decoration: none;
-            border-radius: 20px;
+            border-radius: 24px;
             font-size: clamp(1.1rem, 3.5vw, 1.3rem);
             font-weight: 600;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 
+                0 12px 40px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             text-align: center;
             min-width: clamp(150px, 40vw, 200px);
             flex: 1;
             max-width: 300px;
             position: relative;
             overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.15);
         }
         
         .menu-button::before {
@@ -152,18 +258,44 @@
         }
         
         .menu-button:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transform: translateY(-12px) scale(1.05);
+            box-shadow: 
+                0 25px 60px rgba(0,0,0,0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 107, 53, 0.05));
+            border-color: rgba(255, 107, 53, 0.6);
         }
         
         .menu-button.restaurant {
-            background: linear-gradient(135deg, #ff6b35, #ff8c42);
-            color: white;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(255, 107, 53, 0.05));
+            border-color: rgba(255, 107, 53, 0.4);
+            box-shadow: 
+                0 12px 40px rgba(255, 107, 53, 0.25),
+                inset 0 1px 0 rgba(255, 107, 53, 0.2);
+        }
+        
+        .menu-button.restaurant:hover {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(255, 107, 53, 0.1));
+            border-color: rgba(255, 107, 53, 0.6);
+            box-shadow: 
+                0 25px 60px rgba(255, 107, 53, 0.4),
+                inset 0 1px 0 rgba(255, 107, 53, 0.3);
         }
         
         .menu-button.drinks {
-            background: linear-gradient(135deg, #d4af37, #f4e4bc);
-            color: #8b4513;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 
+                0 12px 40px rgba(212, 175, 55, 0.25),
+                inset 0 1px 0 rgba(212, 175, 55, 0.2);
+        }
+        
+        .menu-button.drinks:hover {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+            border-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 
+                0 25px 60px rgba(212, 175, 55, 0.4),
+                inset 0 1px 0 rgba(212, 175, 55, 0.3);
         }
         
         .menu-icon {
@@ -234,9 +366,24 @@
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
-</head>
-<body>
-    <div class="container">
+  </head>
+  <body>
+      <!-- Sticky Navigation -->
+      <nav class="navbar" id="navbar">
+          <div class="nav-container">
+              <a href="index.html" class="navbar-brand">
+                  🍕 Mio Mio Pizzeria
+              </a>
+              <ul class="nav-links" id="navLinks">
+                  <li><a href="index.html" class="nav-link active">Start</a></li>
+                  <li><a href="menu.html" class="nav-link">Menü</a></li>
+                  <li><a href="contact.html" class="nav-link">Kontakt</a></li>
+              </ul>
+              <button class="mobile-menu-toggle" id="mobileToggle">☰</button>
+          </div>
+      </nav>
+
+      <div class="container">
         <div class="pizza">🍕</div>
         <h1>Mio Mio</h1>
         <p class="subtitle">Pizzeria</p>
@@ -267,6 +414,29 @@
             startButton.style.display = "none";
             buttonGroup.classList.add("show");
         }
+
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobileToggle').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
     </script>
 </body>
 </html>

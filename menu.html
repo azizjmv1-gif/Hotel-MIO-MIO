@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mio Mio Pizzeria - Menü</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,10 +13,106 @@
         }
         
         body {
-            font-family: Arial, sans-serif;
-            background: white;
-            color: #333;
+            font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #000000;
+            color: white;
             line-height: 1.6;
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding-top: 80px;
+        }
+        
+        /* Sticky Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ff6b35;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #ff6b35;
+            background: rgba(255, 107, 53, 0.1);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
         }
         
         header {
@@ -28,7 +125,9 @@
         
         h1 {
             font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 10px;
+            letter-spacing: -0.02em;
         }
         
         .container {
@@ -41,11 +140,102 @@
             margin-bottom: 50px;
         }
         
+        /* Search and Filter Section */
+        .search-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 107, 53, 0.05));
+            backdrop-filter: blur(25px);
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .search-container {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: #ff6b35;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .search-box::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .filter-btn.active {
+            background: #ff6b35;
+            border-color: #ff6b35;
+            color: white;
+        }
+        
+        .filter-btn:hover {
+            background: rgba(255, 107, 53, 0.3);
+            border-color: #ff6b35;
+        }
+        
+        .favorites-toggle {
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: #d4af37;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .favorites-toggle.active {
+            background: #d4af37;
+            color: #000;
+        }
+        
+        .favorites-toggle:hover {
+            background: rgba(212, 175, 55, 0.3);
+        }
+        
         h2 {
             font-size: 2rem;
+            font-weight: 600;
             margin-bottom: 20px;
             text-align: center;
-            color: #8b4513;
+            color: #ff6b35;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
         
         .pizza-grid {
@@ -55,44 +245,87 @@
         }
         
         .pizza-button {
-            background: #f8f8f8;
-            border: 3px solid #d4af37;
-            border-radius: 20px;
-            padding: 25px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 30px 25px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             text-decoration: none;
-            color: inherit;
+            color: white;
             display: block;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            box-shadow: 
+                0 8px 32px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
         }
         
+        .pizza-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transition: left 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .pizza-button:hover::before {
+            left: 100%;
+        }
+        
         .pizza-button:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-            border-color: #ff6b35;
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 
+                0 25px 50px rgba(0,0,0,0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 107, 53, 0.6);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 107, 53, 0.05));
         }
         
         .pizza-button.special {
-            background: linear-gradient(135deg, #fff8e1, #f5f5f5);
-            border-color: #ff6b35;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(255, 107, 53, 0.05));
+            border-color: rgba(255, 107, 53, 0.4);
+            box-shadow: 
+                0 8px 32px rgba(255, 107, 53, 0.25),
+                inset 0 1px 0 rgba(255, 107, 53, 0.2);
+        }
+        
+        .pizza-button.special:hover {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(255, 107, 53, 0.1));
+            border-color: rgba(255, 107, 53, 0.6);
+            box-shadow: 
+                0 25px 50px rgba(255, 107, 53, 0.4),
+                inset 0 1px 0 rgba(255, 107, 53, 0.3);
         }
         
         .pizza-image {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 20px;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 25px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 4.5rem;
             position: relative;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            background: linear-gradient(45deg, #f4e4bc, #f0d4a3);
+            box-shadow: 
+                0 12px 24px rgba(0,0,0,0.5),
+                inset 0 2px 4px rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(255, 235, 59, 0.9));
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .pizza-button:hover .pizza-image {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 
+                0 16px 32px rgba(0,0,0,0.6),
+                inset 0 2px 4px rgba(255, 255, 255, 0.2);
         }
         
         .pizza-image::before {
@@ -123,28 +356,36 @@
         
         .pizza-name {
             font-size: 1.5rem;
-            font-weight: bold;
-            color: #8b4513;
+            font-weight: 600;
+            color: #ffffff;
             margin-bottom: 12px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: -0.01em;
         }
         
         .pizza-price {
             font-size: 1.4rem;
-            font-weight: bold;
-            color: #d4af37;
+            font-weight: 700;
+            color: #ff6b35;
             margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 0.05em;
         }
         
         .pizza-ingredients {
             font-size: 0.9rem;
-            color: #666;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
             margin-bottom: 6px;
             font-style: italic;
+            line-height: 1.4;
         }
         
         .pizza-german {
             font-size: 0.85rem;
-            color: #555;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.3;
         }
         
         .back-button {
@@ -249,14 +490,42 @@
             background: linear-gradient(45deg, #ff6b35, #ffeb3b);
         }
     </style>
-</head>
-<body>
-    <header>
-        <h1>Mio Mio Pizzeria</h1>
-        <p>Authentische italienische Küche</p>
-    </header>
-    
-    <div class="container">
+  </head>
+  <body>
+      <!-- Sticky Navigation -->
+      <nav class="navbar" id="navbar">
+          <div class="nav-container">
+              <a href="index.html" class="navbar-brand">
+                  🍕 Mio Mio Pizzeria
+              </a>
+              <ul class="nav-links" id="navLinks">
+                  <li><a href="index.html" class="nav-link">Start</a></li>
+                  <li><a href="menu.html" class="nav-link active">Menü</a></li>
+                  <li><a href="contact.html" class="nav-link">Kontakt</a></li>
+              </ul>
+              <button class="mobile-menu-toggle" id="mobileToggle">☰</button>
+          </div>
+      </nav>
+
+      <header>
+          <h1>Mio Mio Pizzeria</h1>
+          <p>Authentische italienische Küche</p>
+      </header>
+      
+      <div class="container">
+          <!-- Search and Filter Section -->
+          <div class="search-section">
+              <div class="search-container">
+                  <input type="text" class="search-box" placeholder="Pizza suchen..." id="searchBox">
+                  <div class="filter-buttons">
+                      <button class="filter-btn active" data-category="all">Alle</button>
+                      <button class="filter-btn" data-category="classic">Klassiker</button>
+                      <button class="filter-btn" data-category="special">Spezialitäten</button>
+                      <button class="filter-btn" data-category="vegetarian">Vegetarisch</button>
+                  </div>
+                  <button class="favorites-toggle" id="favoritesToggle">⭐ Favoriten</button>
+              </div>
+          </div>
         <div class="section">
             <h2>P I Z Z A</h2>
             <div class="pizza-grid">
@@ -428,5 +697,153 @@
             <a href="index.html" class="back-button">Zurück zur Startseite</a>
         </div>
     </div>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobileToggle').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Search functionality
+        const searchBox = document.getElementById('searchBox');
+        const pizzaButtons = document.querySelectorAll('.pizza-button');
+        
+        searchBox.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            pizzaButtons.forEach(button => {
+                const name = button.querySelector('.pizza-name').textContent.toLowerCase();
+                const ingredients = button.querySelector('.pizza-ingredients').textContent.toLowerCase();
+                const german = button.querySelector('.pizza-german').textContent.toLowerCase();
+                
+                if (name.includes(searchTerm) || ingredients.includes(searchTerm) || german.includes(searchTerm)) {
+                    button.style.display = 'block';
+                } else {
+                    button.style.display = 'none';
+                }
+            });
+        });
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-category');
+                
+                pizzaButtons.forEach(pizzaButton => {
+                    if (category === 'all') {
+                        pizzaButton.style.display = 'block';
+                    } else {
+                        const pizzaClass = pizzaButton.className;
+                        if (category === 'classic' && (pizzaClass.includes('margherita') || pizzaClass.includes('marinara') || pizzaClass.includes('capricciosa') || pizzaClass.includes('stagioni'))) {
+                            pizzaButton.style.display = 'block';
+                        } else if (category === 'special' && (pizzaClass.includes('special') || pizzaClass.includes('mio-mio') || pizzaClass.includes('bufalina'))) {
+                            pizzaButton.style.display = 'block';
+                        } else if (category === 'vegetarian' && (pizzaClass.includes('vegetariana') || pizzaClass.includes('quattro-formaggi'))) {
+                            pizzaButton.style.display = 'block';
+                        } else {
+                            pizzaButton.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        // Favorites functionality
+        let favorites = JSON.parse(localStorage.getItem('pizzaFavorites')) || [];
+        const favoritesToggle = document.getElementById('favoritesToggle');
+        
+        // Add favorite buttons to each pizza
+        pizzaButtons.forEach(button => {
+            const favoriteBtn = document.createElement('button');
+            favoriteBtn.innerHTML = '⭐';
+            favoriteBtn.style.cssText = `
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background: rgba(0,0,0,0.5);
+                border: none;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                color: #d4af37;
+                cursor: pointer;
+                font-size: 14px;
+                transition: all 0.3s ease;
+            `;
+            
+            const pizzaName = button.querySelector('.pizza-name').textContent;
+            const isFavorite = favorites.includes(pizzaName);
+            
+            if (isFavorite) {
+                favoriteBtn.style.background = '#d4af37';
+                favoriteBtn.style.color = '#000';
+            }
+            
+            favoriteBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                if (favorites.includes(pizzaName)) {
+                    favorites = favorites.filter(name => name !== pizzaName);
+                    this.style.background = 'rgba(0,0,0,0.5)';
+                    this.style.color = '#d4af37';
+                } else {
+                    favorites.push(pizzaName);
+                    this.style.background = '#d4af37';
+                    this.style.color = '#000';
+                }
+                
+                localStorage.setItem('pizzaFavorites', JSON.stringify(favorites));
+            });
+            
+            button.style.position = 'relative';
+            button.appendChild(favoriteBtn);
+        });
+        
+        // Favorites toggle
+        favoritesToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            
+            if (this.classList.contains('active')) {
+                pizzaButtons.forEach(button => {
+                    const pizzaName = button.querySelector('.pizza-name').textContent;
+                    if (favorites.includes(pizzaName)) {
+                        button.style.display = 'block';
+                    } else {
+                        button.style.display = 'none';
+                    }
+                });
+            } else {
+                pizzaButtons.forEach(button => {
+                    button.style.display = 'block';
+                });
+            }
+        });
+    </script>
 </body>
 </html>
